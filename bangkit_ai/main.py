@@ -9,6 +9,16 @@ if __name__ == "__main__":
     daily_tracking = {}
     @app.route("/measure-classify", methods=["POST"])
     def measure():
+        '''
+        Measure baby length and classify nutritional status based on the length and weight.
+        expected input:
+        {
+            "url": "https://firebasestorage.googleapis.com/v0/b/riri-project.appspot.com/o/baby_3.jpeg?alt=media",
+            "weight": 5.5,
+            "age": 6,
+            "gender": "male" or "female"
+        }
+        '''
         try:
             data = request.get_json()
             url = data["url"]
@@ -34,8 +44,8 @@ if __name__ == "__main__":
                     }
                 )
             else:
-                print("Failed to measure baby length.")
-                return jsonify({"error": "Failed to measure baby length"}), 400
+                print("There is something wrong")
+                return jsonify({"error": "There is something wrong"}), 400
         except Exception as e:
             return jsonify({"error": str(e)}), 400
     
