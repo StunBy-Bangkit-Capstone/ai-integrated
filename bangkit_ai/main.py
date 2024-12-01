@@ -11,7 +11,7 @@ if __name__ == "__main__":
     def measure():
         '''
         Measure baby length and classify nutritional status based on the length and weight.
-        expected input:
+        Expected input:
         {
             "url": "https://firebasestorage.googleapis.com/v0/b/riri-project.appspot.com/o/baby_3.jpeg?alt=media",
             "weight": 5.5,
@@ -29,7 +29,7 @@ if __name__ == "__main__":
             print(f"Baby length: {baby_length}")
             if baby_length is not None and baby_weight is not None:
                 try:
-                    z_score_bb_tb, status_bb_tb, imt, status_imt = nutritional_status(
+                    z_score_bb_tb, status_bb_tb, imt, status_imt, z_score_length, nutritional_status_length, z_score_weight, nutritional_status_weight = nutritional_status(
                     gender, age, baby_length, baby_weight
                     )
                 except:
@@ -41,6 +41,11 @@ if __name__ == "__main__":
                         'status_bb_tb': status_bb_tb,
                         'imt': float(imt),
                         'status_imt': status_imt,
+                        'z_score_length': float(z_score_length),
+                        'nutritional_status_length': nutritional_status_length,
+                        'z_score_weight': float(z_score_weight),
+                        'nutritional_status_weight': nutritional_status_weight
+                        
                     }
                 )
             else:

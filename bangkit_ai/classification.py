@@ -246,15 +246,18 @@ def nutritional_status(gender, age, length_baby, weight_baby):
     # Jika panjang badan dan berat badan keduanya diberikan (BB/TB)
   
     try:
+        # BB/U (Weight-for-Age)
+        z_score_weight = calculate_z_score_weight(weight_baby, gender, age)
+        nutritional_status_weight = classify_nutritional_status_weight(z_score_weight)
+        # PB/U (Length-for-Age)
+        z_score_length = calculate_z_score_length(gender, age, length_baby)
+        nutritional_status_length = classify_nutritional_status_length(z_score_length)
         # BB/TB (Weight-for-Length)
         z_score_bb_tb = calculate_z_score_bb_tb(gender, age, length_baby, weight_baby)
         status_bb_tb = classify_nutritional_status_bb_tb(z_score_bb_tb)
-        # result = f"BB/TB (Weight-for-Length) - Z-score: {z_score_bb_tb:.2f}, Status Gizi: {status_bb_tb}"
-
         # Menghitung IMT
         imt, status_imt = calculate_z_score_imt(gender, age, weight_baby, length_baby)
-        # result += f"\nIMT: {imt:.2f}, Status Gizi: {status_imt}"
-        return z_score_bb_tb, str(status_bb_tb), imt, str(status_imt)
+        return z_score_bb_tb, str(status_bb_tb), imt, str(status_imt), z_score_length, str(nutritional_status_length), z_score_weight, str(nutritional_status_weight)
     except ValueError as e:
         print("error: ", e)
         return str(e)
