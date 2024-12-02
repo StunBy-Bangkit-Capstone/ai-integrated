@@ -5,7 +5,7 @@ from tensorflow.keras.models import load_model
 import os
 
 # Load model dan scaler
-MODEL_DIR = "models/saved_models"
+MODEL_DIR = "models/baby_nutrition"
 df_food = pd.read_csv('dataset_baby/data_baby_food.csv')
 
 # Load saved models
