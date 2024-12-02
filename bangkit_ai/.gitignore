@@ -1,4 +1,4 @@
 bangkit_env
 venv
 env
-_pychache_
+__pycache__/
