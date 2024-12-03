@@ -9,6 +9,17 @@ app = Flask(__name__)
 rag_model = load_model()
 daily_tracking = {}
             
+"""
+request body:
+{
+    "query": "Apa itu stunting?"
+}
+response:
+{
+    "query": "Apa itu stunting?",
+    "response": "Stunting adalah "
+}
+"""
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
