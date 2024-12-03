@@ -1,40 +1,40 @@
-name: CI/CD to GCP VM with Gunicorn
+name: Deploy Application
 
 on:
   push:
     branches:
-      - main  # Jalankan pada branch main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Deploy to VM
+    - name: Deploy to Server
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: ${{ secrets.VM_IP }}
-        username: ${{ secrets.VM_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
         port: 22
         script: |
           # Masuk ke direktori aplikasi
           cd /home/rahulilabs27/ai-integrated
 
-          # Stop Gunicorn jika berjalan via systemd
+          # Hentikan Gunicorn jika berjalan
           pkill -f gunicorn || echo "Gunicorn not running"
 
           # Tarik kode terbaru dari GitHub
           git pull origin main
-          
-          # Masuk ke direktori aplikasi
+
+          # Masuk ke sub-direktori aplikasi
           cd /home/rahulilabs27/ai-integrated/bangkit_ai
 
           # Install atau update dependencies
           pip install -r requirements.txt
 
-          # Start Gunicorn kembali
-          gunicorn -w 1 -b 0.0.0.0:8080 main:app 
+          # Jalankan kembali Gunicorn
+          gunicorn -w 1 -b 0.0.0.0:8080 main:app
