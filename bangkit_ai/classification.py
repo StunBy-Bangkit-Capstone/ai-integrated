@@ -224,28 +224,11 @@ def calculate_z_score_imt(gender, age, weight_baby, length_baby):
 
 
 def nutritional_status(gender, age, length_baby, weight_baby):
-    
-    # # Jika panjang badan diberikan
-    # if length_baby is not None and weight_baby is None:
-    #     try:
-    #         z_score_length = calculate_z_score_length(gender, age, length_baby)
-    #         nutritional_status_length = classify_nutritional_status_length(z_score_length)
-    #         return z_score_length, nutritional_status_length 
-    #     except ValueError as e:
-    #         return str(e)
-
-    # Jika berat badan diberikan
-    # if weight_baby is not None and length_baby is None:
-    #     try:
-    #         z_score_weight = calculate_z_score_weight(weight_baby, gender, age)
-    #         nutritional_status_weight = classify_nutritional_status_weight(z_score_weight)
-    #         return z_score_weight, nutritional_status_weight
-    #     except ValueError as e:
-    #         return str(e)
-
-    # Jika panjang badan dan berat badan keduanya diberikan (BB/TB)
   
     try:
+        # Pembulatan length_baby ke kelipatan 0.5 terdekat
+        length_baby = round(length_baby * 2) / 2
+        
         # BB/U (Weight-for-Age)
         z_score_weight = calculate_z_score_weight(weight_baby, gender, age)
         nutritional_status_weight = classify_nutritional_status_weight(z_score_weight)
@@ -261,4 +244,3 @@ def nutritional_status(gender, age, length_baby, weight_baby):
     except ValueError as e:
         print("error: ", e)
         return str(e)
-
