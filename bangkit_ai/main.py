@@ -58,6 +58,12 @@ def measure():
         gender = data["gender"]
         baby_length = measure_all(url)
         print(f"Baby length: {baby_length}")
+        
+        # Konversi tensor ke float dan bulatkan ke 2 desimal untuk output
+        if baby_length is not None:
+            if hasattr(baby_length, 'item'):
+                baby_length = float(baby_length.item())
+            baby_length = round(baby_length, 2)
         if baby_length is not None and baby_weight is not None:
             try:
                 z_score_bb_tb, status_bb_tb, imt, status_imt, z_score_length, nutritional_status_length, z_score_weight, nutritional_status_weight = nutritional_status(
