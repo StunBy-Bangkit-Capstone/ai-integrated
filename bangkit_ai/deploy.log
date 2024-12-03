@@ -15,8 +15,8 @@ log "Verifying log file permissions..."
 if [ ! -w "$LOG_FILE" ]; then
   log "Log file is not writable. Attempting to set proper permissions..."
   
-  # Jika file log tidak dapat ditulis, berikan izin menulis pada file log
-  sudo chmod u+w "$LOG_FILE"
+  # Memberikan izin penuh (read, write, execute) pada file log
+  sudo chmod 777 "$LOG_FILE"
   sudo chown $(whoami):$(whoami) "$LOG_FILE"  # Pastikan file log dimiliki oleh user yang menjalankan skrip
 fi
 
@@ -26,8 +26,8 @@ log "Verifying directory permissions..."
 if [ ! -w "$(dirname "$LOG_FILE")" ]; then
   log "Directory is not writable. Attempting to set proper permissions..."
   
-  # Jika direktori log tidak bisa diakses, beri izin menulis
-  sudo chmod u+w "$(dirname "$LOG_FILE")"
+  # Memberikan izin penuh (read, write, execute) pada direktori tempat file log berada
+  sudo chmod 777 "$(dirname "$LOG_FILE")"
   sudo chown -R $(whoami):$(whoami) "$(dirname "$LOG_FILE")"  # Pastikan direktori dimiliki oleh user yang menjalankan skrip
 fi
 
