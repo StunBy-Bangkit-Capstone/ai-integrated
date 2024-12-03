@@ -1,45 +1,40 @@
-
-name: Deploy to Cloud
+name: CI/CD to GCP VM with Gunicorn
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # Jalankan pada branch main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: "read"
-      id-token: "write"
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-      - name: Google Auth
-        uses: "google-github-actions/auth@v1"
-        with:
-          credentials_json: "${{ secrets.GCP_SA_KEY }}"
+    - name: Deploy to VM
+      uses: appleboy/ssh-action@v0.5.0
+      with:
+        host: ${{ secrets.VM_IP }}
+        username: ${{ secrets.VM_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          # Masuk ke direktori aplikasi
+          cd /home/rahulilabs27/ai-integrated
 
-      - name: Set up Cloud SDK
-        uses: "google-github-actions/setup-gcloud@v1"
+          # Stop Gunicorn jika berjalan via systemd
+          pkill -f gunicorn || echo "Gunicorn not running"
 
-      - name: Authenticate Docker with GCP
-        run: gcloud auth configure-docker
+          # Tarik kode terbaru dari GitHub
+          git pull origin main
+          
+          # Masuk ke direktori aplikasi
+          cd /home/rahulilabs27/ai-integrated/bangkit_ai
 
-      - name: Build and Push Docker Image
-        run: |
-          IMAGE_NAME="gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-ml"
-          cd bangkit_ai
-          docker build -t $IMAGE_NAME:latest .
-          docker push $IMAGE_NAME:latest
+          # Install atau update dependencies
+          pip install -r requirements.txt
 
-      - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy api-ml \
-            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-ml:latest \
-            --region=${{ secrets.GCP_REGION }} \
-            --platform=managed \
-            --allow-unauthenticated \
+          # Start Gunicorn kembali
+          gunicorn -w 1 -b 0.0.0.0:8080 main:app 
