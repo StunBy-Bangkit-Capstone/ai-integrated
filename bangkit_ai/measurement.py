@@ -70,8 +70,11 @@ def measure_all(url):
     pose_model = YOLO("models/keypoint.pt")
     coin_model = YOLO("models/coin.pt")
     image = download_image(url)
-    if image is None:
-        print("Failed to download the image.")
+    # if image is None:
+    #     print("Failed to download the image.")
+    #     return None
+    if image is None or len(image.shape) != 3 or image.shape[-1] != 3:
+        print("Invalid image format. Ensure the image is RGB or convertible to RGB.")
         return None
 
     coin_results = coin_model(image, stream=False)
@@ -91,8 +94,19 @@ def download_image(url):
         response.raise_for_status()
         img_array = np.array(bytearray(response.content), dtype=np.uint8)
         img = cv2.imdecode(img_array, -1)
+
+        if img is None:
+            print("Image could not be decoded.")
+            return None
+
+        if len(img.shape) == 2:  # Grayscale (1 channel)
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)  # Konversi ke 3 channel (BGR)
+        elif img.shape[-1] == 4:  # RGBA (4 channel)
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)  # Konversi ke 3 channel (BGR)
+        elif img.shape[-1] != 3:  # Format tidak dikenal
+            print(f"Unsupported image format with {img.shape[-1]} channels.")
+            return None
         return img
     except Exception as e:
         print(f"Error downloading image: {e}")
         return None
-
