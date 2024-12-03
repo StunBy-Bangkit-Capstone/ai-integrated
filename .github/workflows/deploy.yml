@@ -22,19 +22,10 @@ jobs:
         port: 22
         script: |
           # Masuk ke direktori aplikasi
-          cd /home/rahulilabs27/ai-integrated
-
-          # Hentikan Gunicorn jika berjalan
-          pkill -f gunicorn || echo "Gunicorn not running"
-
-          # Tarik kode terbaru dari GitHub
-          git pull origin main
-
-          # Masuk ke sub-direktori aplikasi
           cd /home/rahulilabs27/ai-integrated/bangkit_ai
 
-          # Install atau update dependencies
-          pip install -r requirements.txt
+          # Pastikan deploy.sh dapat dieksekusi
+          chmod +x deploy.sh
 
-          # Jalankan kembali Gunicorn
-          gunicorn -w 1 -b 0.0.0.0:8080 main:app
+          # Jalankan script deploy.sh dengan bash
+          bash deploy.sh
