@@ -18,7 +18,7 @@ response:
 {
     "query": "Apa itu stunting?",
     "response": "Stunting adalah "
-}
+}z
 """
 # @app.route('/chat', methods=['POST'])
 # def chat():
@@ -40,16 +40,6 @@ response:
         
 @app.route("/measure-classify", methods=["POST"])
 def measure():
-    '''
-    Measure baby length and classify nutritional status based on the length and weight.
-    Expected input:
-    {
-        "url": "https://firebasestorage.googleapis.com/v0/b/riri-project.appspot.com/o/baby_3.jpeg?alt=media",
-        "weight": 5.5,
-        "age": 6,
-        "gender": "male" or "female"
-    }
-    '''
     try:
         data = request.get_json()
         url = data["url"]
