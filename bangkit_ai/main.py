@@ -3,10 +3,10 @@ from classification import nutritional_status
 from nutrition_prediction_tracking import evaluate_nutrition, predict_nutrition, df_food
 from datetime import datetime
 from measurement import measure_all
-from chatbot import load_model, stunby_chatbot, StunbyRAG
+# from chatbot import load_model, stunby_chatbot, StunbyRAG
 
 app = Flask(__name__) 
-rag_model = load_model()
+# rag_model = load_model()
 daily_tracking = {}
             
 """
@@ -20,23 +20,23 @@ response:
     "response": "Stunting adalah "
 }
 """
-@app.route('/chat', methods=['POST'])
-def chat():
-    try:
-        data = request.get_json()
-        query = data.get('query')
+# @app.route('/chat', methods=['POST'])
+# def chat():
+#     try:
+#         data = request.get_json()
+#         query = data.get('query')
         
-        if not query:
-            return jsonify({'error': 'Query tidak boleh kosong'}), 400
+#         if not query:
+#             return jsonify({'error': 'Query tidak boleh kosong'}), 400
 
-        response = stunby_chatbot(query, rag_model)
-        return jsonify({
-            'query': query,
-            'response': response
-        })
+#         response = stunby_chatbot(query, rag_model)
+#         return jsonify({
+#             'query': query,
+#             'response': response
+#         })
 
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
         
 @app.route("/measure-classify", methods=["POST"])
 def measure():
