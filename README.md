@@ -1,9 +1,38 @@
+## Measure Classify
 
-1. Predict Nutrition
+Request:
 
-POST 127.0.0.1:5000/api/prediction/predict_nutrition
-request:
+```json
+{
+  "url": "https://storage.googleapis.com/stunby_bucket/baby_testing/baby_3.jpeg",
+  "weight": 5.5,
+  "age": 6,
+  "gender": "male"
+}
 ```
+
+Response:
+
+```json
+{
+  "baby_length": 45.79,
+  "imt": 25.99243856332703,
+  "nutritional_status_length": "Sangat Pendek",
+  "nutritional_status_weight": "Gizi Kurang",
+  "status_bb_tb": "Gemuk",
+  "status_imt": "Obesitas (Obese)",
+  "z_score_bb_tb": 9.666666666666671,
+  "z_score_length": -10.285714285714311,
+  "z_score_weight": -2.999999999999998
+}
+```
+
+## Predict Nutrition
+
+POST 127.0.0.1:5000/predict_nutrition
+request:
+
+```json
 {
     "usia_bulan": 12,           # int: 0-24 bulan
     "gender": "L",              # str: "L" atau "P"
@@ -15,7 +44,8 @@ request:
 ```
 
 response:
-```
+
+```json
 {
     "status": "success",
     "data": {
@@ -27,81 +57,35 @@ response:
 }
 ```
 
-2. Inisialisasi tracking
-POST http://127.0.0.1:5000/api/tracking/initialize-tracking
-REQUEST:
-```
-{
-    "user_id": "user123",
-    "usia_bulan": 12,
-    "gender": "L",
-    "berat_kg": 9.5,
-    "tinggi_cm": 75,
-    "aktivitas_level": "Sedang",
-    "status_asi": "ASI+MPASI"
-}
-```
-
-RESPONSE:
-```
-{
-    "data": {
-        "predicted_needs": {
-            "calories_needed": 918.9876098632812,
-            "carbohydrate_needed": 98.3218765258789,
-            "fat_needed": 63.94084167480469,
-            "proteins_needed": 20.159221649169922
-        },
-        "tracking_initialized": true
-    },
-    "status": "success"
-}
-```
-
-3. Add Food Tracking
+## Add Food Tracking
 
 POST http://127.0.0.1:5000/api/tracking/add-food
-Request:
-```
+
+request:
+
+```json
 {
-    "user_id": "user123",
-    "food_name": "ASI (Air Susu Ibu)",
-    "date": "2024-10-20",
-    "portion": 100
+  "food_name": "ASI (Air Susu Ibu)",
+  "portion": 200
 }
 ```
 
-Response:
-```
-{
-    "data": {
-        "foods": [
-            {
-                "name": "ASI (Air Susu Ibu)",
-                "notes": "ASI Eksklusif direkomendasikan oleh WHO sebagai sumber nutrisi eksklusif.",
-                "nutrients": {
-                    "calcium": 34.0,
-                    "calories": 70.0,
-                    "carbohydrate": 7.0,
-                    "fat": 4.2,
-                    "proteins": 1.2
-                },
-                "portion": 100.0
-            }
-        ],
-        "total_nutrients": {
-            "calcium": 34.0,
-            "calories": 70.0,
-            "carbohydrate": 7.0,
-            "fat": 4.2,
-            "proteins": 1.2
-        }
-    },
-    "status": "success"
-}
-```
+response:
 
-4. Get Daily Tracking
 ```
-GET http://127.0.0.1:5000/api/tracking/get-daily/user123/2024-01-20
+    {
+        "data": {
+            "name": "ASI (Air Susu Ibu)",
+            "notes": "ASI Eksklusif direkomendasikan oleh WHO sebagai sumber nutrisi eksklusif.",
+            "nutrients": {
+                "calcium": 68.0,
+                "calories": 140.0,
+                "carbohydrate": 14.0,
+                "fat": 8.4,
+                "proteins": 2.4
+            },
+            "portion": 200.0
+        },
+        "status": "success"
+    }
 ```
