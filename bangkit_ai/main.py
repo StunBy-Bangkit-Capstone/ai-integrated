@@ -40,6 +40,11 @@ response:
 #         return jsonify({'error': str(e)}), 500
 
 
+@app.route("/",methods=["GET"])
+def gate():
+    return jsonify({"message":"api is ready"})
+
+
 @app.route("/measure-classify", methods=["POST"])
 def measure():
     try:
