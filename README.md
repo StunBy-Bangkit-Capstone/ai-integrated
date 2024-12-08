@@ -1,5 +1,6 @@
 ## Measure Classify
 
+POST http://127.0.0.1:5000/measure-classify
 Request:
 
 ```json
@@ -17,10 +18,10 @@ Response:
 {
   "baby_length": 45.79,
   "imt": 25.99243856332703,
-  "nutritional_status_length": "Sangat Pendek",
-  "nutritional_status_weight": "Gizi Kurang",
-  "status_bb_tb": "Gemuk",
-  "status_imt": "Obesitas (Obese)",
+  "nutritional_status_length": "Sangat Pendek", // "Sangat Pendek", "Pendek", "Normal", "Tinggi", "Tidak Diketahui"
+  "nutritional_status_weight": "Gizi Kurang", // "Gizi Buruk", "Gizi Kurang", "Gizi Baik", "Gizi Lebih", "Kategori Tidak DIketahui"
+  "status_bb_tb": "Gemuk", // "Sangat Kurus", "Kurus", "Normal", "Gemuk", "Kategori Tidak Diketahui"
+  "status_imt": "Obesitas (Obese)", // "Gizi", "Gizi Buruk (Severely Wasted)", "Gizi Kurang (Wasted)", "Gizi Baik (Normal)", "Berisiko Gizi Lebih (Possible Risk of Overweight)", "Gizi Lebih (Overweight)", "Obesitas (Obese)", "Kategori Tidak Diketahui"
   "z_score_bb_tb": 9.666666666666671,
   "z_score_length": -10.285714285714311,
   "z_score_weight": -2.999999999999998
@@ -72,20 +73,20 @@ request:
 
 response:
 
-```
-    {
-        "data": {
-            "name": "ASI (Air Susu Ibu)",
-            "notes": "ASI Eksklusif direkomendasikan oleh WHO sebagai sumber nutrisi eksklusif.",
-            "nutrients": {
-                "calcium": 68.0,
-                "calories": 140.0,
-                "carbohydrate": 14.0,
-                "fat": 8.4,
-                "proteins": 2.4
-            },
-            "portion": 200.0
-        },
-        "status": "success"
-    }
+```json
+{
+  "data": {
+    "name": "ASI (Air Susu Ibu)",
+    "notes": "ASI Eksklusif direkomendasikan oleh WHO sebagai sumber nutrisi eksklusif.",
+    "nutrients": {
+      "calcium": 68.0,
+      "calories": 140.0,
+      "carbohydrate": 14.0,
+      "fat": 8.4,
+      "proteins": 2.4
+    },
+    "portion": 200.0
+  },
+  "status": "success"
+}
 ```
