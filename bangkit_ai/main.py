@@ -6,6 +6,7 @@ from measurement import measure_all
 
 # from chatbot import load_model, stunby_chatbot, StunbyRAG
 from nutrition_prediction_tracking import NutritionTracker
+from food_recommendation import get_recommendations
 
 app = Flask(__name__)
 daily_tracking = {}
@@ -165,6 +166,25 @@ def predict_nutrition():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+# Endpoint untuk mendapatkan rekomendasi
+@app.route('/recommend', methods=['POST'])
+def recommend():
+    try:
+        # Ambil data dari request JSON
+        data = request.get_json()
+
+        age_months = data['age_months']
+        daily_needs = data['daily_needs']
+        budget = data['budget']
+
+        # Panggil fungsi get_recommendations
+        recommendations = get_recommendations(age_months, daily_needs, budget, top_n=5)
+
+        return jsonify(recommendations)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+
 
 # @app.route("/initialize-tracking", methods=["POST"])
 # def initialize_tracking():
@@ -243,4 +263,4 @@ def predict_nutrition():
 #         }), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
