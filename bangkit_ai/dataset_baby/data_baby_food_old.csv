@@ -1,0 +1,77 @@
+Age_Group,Food (per 100g),Calcium(mg),Protein(g),Carbohydrate(g),Fat(g),Calorie(kcal),Notes
+0-6 BULAN,ASI (Air Susu Ibu),34,1.2,7.0,4.2,70,ASI Eksklusif direkomendasikan oleh WHO sebagai sumber nutrisi eksklusif.
+0-6 BULAN,Susu Formula Bayi 0-6 bulan,50,1.5,7.2,3.6,67,Contoh merek: Bebelac Gold 1 SGM 1 Dancow 1. Ikuti petunjuk penyajian pada kemasan.
+6-12 BULAN,Susu Formula Lanjutan 6-12 bulan,65,1.8,8.0,3.8,72,Contoh merek: Bebelac Gold 2 SGM 2 Dancow 2. Diperkaya dengan zat besi dan vitamin esensial.
+6-8 BULAN,Bubur Susu Beras Merah,45,3.5,25.0,1.0,123,MPASI awal dengan tekstur halus. Campur beras merah halus dengan susu formula atau ASI.
+6-8 BULAN,Bubur Susu Beras Putih,40,3.2,24.0,0.9,120,MPASI awal dengan tekstur halus. Campur beras putih halus dengan susu formula atau ASI.
+6-8 BULAN,Pisang Lumat,6,1.2,22.8,0.2,89,Pisang matang dilumatkan hingga halus. Ideal untuk pengenalan MPASI.
+6-8 BULAN,Pure Alpukat,10,2.0,8.5,14.7,160,Alpukat matang dilumatkan. Sumber lemak baik untuk perkembangan otak bayi.
+6-8 BULAN,Pure Apel,5,0.3,13.8,0.2,52,Apel kukus yang dihaluskan. Pastikan teksturnya sangat halus untuk menghindari risiko tersedak.
+6-8 BULAN,Pure Wortel,33,0.9,9.6,0.2,41,Wortel kukus yang dihaluskan. Kaya beta-karoten yang baik untuk penglihatan.
+6-8 BULAN,Nasi Tim Saring,10,2.1,28.0,0.3,123,Nasi yang sangat halus dan dicampur dengan kaldu sayur atau daging.
+6-8 BULAN,Bubur Ayam Saring,15,4.5,15.0,2.5,101,Ayam rebus yang dihaluskan dan dicampur dengan nasi halus. Tinggi protein.
+6-8 BULAN,Pure Kentang,12,2.0,17.0,0.1,77,Kentang kukus yang dihaluskan. Sumber karbohidrat yang baik.
+6-8 BULAN,Pure Ubi Jalar Kuning,30,1.6,20.0,0.1,86,Ubi jalar kukus yang dihaluskan. Kaya vitamin A.
+6-8 BULAN,Sup Bayam Saring,99,3.0,3.6,0.4,23,Bayam rebus yang dihaluskan dan disaring. Kaya zat besi.
+6-8 BULAN,Pure Labu Kuning,21,1.1,6.5,0.1,26,Labu kuning kukus yang dihaluskan. Sumber beta-karoten.
+9-12 BULAN,Tim Ikan Giling,20,16.0,0.0,1.0,74,Ikan kukus yang digiling halus. Sumber omega-3 yang baik.
+9-12 BULAN,Tim Hati Ayam,8,16.6,0.0,3.2,94,Hati ayam rebus yang dihaluskan. Kaya zat besi dan vitamin A.
+9-12 BULAN,Tim Daging Sapi Giling,7,18.8,0.0,14.0,200,Daging sapi rebus yang digiling. Tinggi protein dan zat besi.
+9-12 BULAN,Bubur Kacang Hijau,125,7.5,19.0,0.5,112,Kacang hijau yang direbus dan dihaluskan. Sumber protein nabati.
+9-12 BULAN,Pure Tofu,105,8.0,1.9,4.8,76,Tofu yang dihaluskan. Sumber protein dan kalsium.
+9-12 BULAN,Oatmeal Bayi,54,2.4,12.0,1.4,71,Oatmeal yang dimasak dengan tekstur sangat halus. Sumber serat.
+9-12 BULAN,Biskuit Bayi,170,6.3,75.0,9.0,408,Biskuit khusus bayi yang mudah larut dalam mulut. Sumber energi cepat.
+9-12 BULAN,Pure Brokoli,47,2.8,7.0,0.4,34,Brokoli kukus yang dihaluskan. Kaya antioksidan dan vitamin C.
+9-12 BULAN,Sup Tahu Wortel,80,5.2,4.8,3.2,69,Tahu dan wortel yang dihaluskan dalam sup. Sumber protein dan beta-karoten.
+9-12 BULAN,Pure Edamame,63,11.0,8.9,4.7,121,Edamame yang dihaluskan. Tinggi protein dan lemak sehat.
+12+ BULAN,Bubur Sumsum,95,3.2,32.0,2.1,160,Bubur sumsum tulang sapi. Kaya kalsium dan protein.
+12+ BULAN,Tim Telur,50,12.8,0.7,11.5,155,Telur rebus yang dihaluskan. Sumber protein dan lemak sehat.
+12+ BULAN,Pure Jagung Manis,2,3.3,19.0,1.0,98,Jagung manis yang dihaluskan. Sumber energi dan serat.
+12+ BULAN,Sup Makaroni Sayur,15,3.5,16.0,0.9,86,Makaroni dengan sayuran yang dihaluskan. Makanan lengkap dengan karbohidrat dan sayuran.
+12+ BULAN,Pure Kembang Kol,22,1.9,5.0,0.3,25,Kembang kol yang dihaluskan. Sumber vitamin C dan K.
+12+ BULAN,Tim Udang,70,20.3,0.0,1.7,98,Udang yang dihaluskan. Sumber protein dan omega-3.
+12+ BULAN,Bubur Havermut Susu,80,4.0,17.0,2.5,107,Havermut yang dimasak dengan susu. Sumber energi dan serat.
+12+ BULAN,Pure Bit,16,1.6,9.6,0.2,43,Bit yang dihaluskan. Sumber folat dan serat.
+12+ BULAN,Sup Oyong,19,0.8,4.1,0.2,21,Oyong yang dihaluskan dalam sup. Sumber serat dan rendah kalori.
+12+ BULAN,Pure Pepaya,24,0.5,9.8,0.1,43,Pepaya matang yang dihaluskan. Sumber vitamin C dan A.
+12+ BULAN,Tim Tahu,120,8.0,1.9,4.8,76,Tahu yang dihaluskan. Sumber protein dan kalsium.
+12+ BULAN,Pure Tempe,129,18.3,9.8,4.0,149,Tempe yang dihaluskan. Sumber protein dan serat.
+12+ BULAN,Bubur Beras Merah Sayur,52,3.8,28.0,1.2,138,Bubur beras merah dengan sayuran. Sumber serat dan vitamin.
+12+ BULAN,Pure Labu Siam,19,0.6,4.1,0.1,19,Labu siam yang dihaluskan. Sumber vitamin A dan C.
+12+ BULAN,Tim Ikan Salmon,9,20.0,0.0,13.0,198,Ikan salmon yang dihaluskan. Tinggi omega-3 dan protein.
+12+ BULAN,Sup Cream Jagung,25,2.8,12.0,2.5,82,Jagung dan krim yang dihaluskan menjadi sup. Sumber energi dan protein.
+12+ BULAN,Pure Kacang Polong,25,5.4,14.5,0.4,84,Kacang polong yang dihaluskan. Sumber protein dan serat.
+12+ BULAN,Tim Ayam Cincang,12,18.2,0.0,10.2,165,Ayam yang dicincang dan dihaluskan. Sumber protein tinggi.
+12+ BULAN,Pure Pare,19,1.1,4.3,0.3,24,Pare yang dihaluskan. Dikenal untuk sifat anti-diabetesnya.
+12+ BULAN,Bubur Beras Hitam,41,3.5,26.0,0.9,130,Bubur beras hitam. Sumber antioksidan dan serat.
+12+ BULAN,Pure Terong,9,1.1,5.7,0.2,29,Terong yang dihaluskan. Sumber serat dan rendah kalori.
+12+ BULAN,Tim Ikan Dori,15,17.0,0.0,1.3,80,Ikan dori yang dihaluskan. Sumber protein dan rendah lemak.
+12+ BULAN,Pure Bayam Merah,99,2.9,3.4,0.4,23,Bayam merah yang dihaluskan. Kaya zat besi dan vitamin K.
+12+ BULAN,Sup Tahu Telur,85,9.5,2.3,8.1,120,Tahu dan telur dalam sup. Sumber protein dan lemak sehat.
+12+ BULAN,Pure Kacang Merah,83,9.0,22.0,0.5,130,Kacang merah yang dihaluskan. Sumber protein dan serat.
+12+ BULAN,Bubur Sagu,43,0.7,85.6,0.2,347,Sagu yang dimasak menjadi bubur. Sumber karbohidrat tinggi.
+12+ BULAN,Tim Ikan Gabus,20,25.2,0.0,1.7,116,Ikan gabus yang dihaluskan. Tinggi protein dan omega-3.
+12+ BULAN,Bubur Singkong,49,1.2,38.1,0.3,160,Singkong yang dimasak menjadi bubur. Sumber energi tinggi.
+12+ BULAN,Pure Daun Katuk,204,4.8,11.0,1.0,59,Daun katuk yang dihaluskan. Sumber vitamin C dan A.
+12+ BULAN,Bubur Jagung Manis,2,3.3,19.0,1.0,98,Jagung manis yang dimasak menjadi bubur. Sumber serat dan karbohidrat.
+12+ BULAN,Pure Labu Parang,25,1.0,6.8,0.1,28,Labu parang yang dihaluskan. Sumber beta-karoten.
+12+ BULAN,Tim Belut,20,14.0,0.0,1.5,69,Belut yang dihaluskan. Sumber protein dan omega-3.
+12+ BULAN,Bubur Ikan Salmon,12,20.0,0.0,13.0,198,Ikan salmon yang dimasak menjadi bubur. Tinggi omega-3.
+12+ BULAN,Pure Daun Mengkudu,395,3.5,8.2,0.4,51,Daun mengkudu yang dihaluskan. Sumber antioksidan.
+12+ BULAN,Tim Telur Puyuh,45,13.1,0.4,11.1,158,Telur puyuh yang dihaluskan. Sumber protein dan vitamin B12.
+12+ BULAN,Bubur Ubi Ungu,28,1.8,27.9,0.1,119,Ubi ungu yang dimasak menjadi bubur. Sumber antioksidan.
+12+ BULAN,Pure Daun Kelor,440,6.7,8.3,1.7,75,Daun kelor yang dihaluskan. Sumber vitamin C dan A.
+12+ BULAN,Tim Kerang,59,16.0,3.6,2.1,99,Kerang yang dihaluskan. Sumber zinc dan protein.
+12+ BULAN,Pure Buah Naga Merah,10,1.1,11.5,0.4,60,Buah naga merah yang dihaluskan. Sumber vitamin C dan serat.
+12+ BULAN,Bubur Gandum,34,13.7,71.1,2.5,364,Gandum yang dimasak menjadi bubur. Sumber energi dan serat.
+12+ BULAN,Pure Daun Singkong,165,6.8,13.0,0.7,87,Daun singkong yang dihaluskan. Sumber vitamin A dan C.
+12+ BULAN,Tim Cumi-cumi,10,16.1,3.1,0.7,84,Cumi-cumi yang dihaluskan. Sumber protein dan omega-3.
+12+ BULAN,Pure Daun Papaya,126,8.0,11.9,2.0,79,Daun papaya yang dihaluskan. Sumber enzim papain yang baik untuk pencernaan.
+6-8 BULAN,Bubur Beras Merah Kacang Hijau,55,4.0,27.0,1.2,130,Bubur beras merah dicampur kacang hijau. Dimasak sampai tekstur sangat halus. Sumber protein dan serat.
+6-8 BULAN,Pure Mangga,18,0.8,17.0,0.2,70,Mangga matang yang dilumatkan. Kaya vitamin A dan C. Pastikan teksturnya halus untuk menghindari tersedak.
+9-12 BULAN,Bubur Pisang Keju,60,3.5,22.0,4.5,150,Bubur pisang dengan tambahan keju parut. Sumber kalsium dan potasium.
+9-12 BULAN,Tumis Bayam dan Tahu,80,5.0,5.0,3.0,80,Bayam dan tahu yang ditumis dan dihaluskan. Sumber zat besi dan protein.
+12+ BULAN,Bubur Kacang Merah,90,8.0,29.0,0.5,160,Kacang merah yang direbus dan dihaluskan dengan beras. Kaya serat dan protein.
+12+ BULAN,Tim Tempe Kedelai,110,18.0,10.0,6.0,160,Tempe yang dihaluskan dan dikukus. Tinggi protein dan serat.
+12+ BULAN,Pure Buah Bit dan Apel,30,1.5,12.5,0.3,60,Buah bit dan apel yang dikukus dan dihaluskan. Sumber vitamin C dan folat.
+12+ BULAN,Bubur Jagung Manis dan Ayam,45,6.5,20.0,2.0,150,Jagung manis dan daging ayam yang direbus dan dihaluskan. Sumber protein dan karbohidrat.

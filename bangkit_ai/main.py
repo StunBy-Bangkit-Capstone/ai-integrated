@@ -6,7 +6,7 @@ from measurement import measure_all
 
 # from chatbot import load_model, stunby_chatbot, StunbyRAG
 from nutrition_prediction_tracking import NutritionTracker
-from food_recommendation import get_recommendations
+from food_recommendation import get_food_recommendations
 
 app = Flask(__name__)
 daily_tracking = {}
@@ -98,7 +98,6 @@ def measure():
 
 tracker = NutritionTracker()
 
-
 @app.route("/add-food", methods=["POST"])
 def add_food():
     """
@@ -166,24 +165,49 @@ def predict_nutrition():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
-# Endpoint untuk mendapatkan rekomendasi
-@app.route('/recommend', methods=['POST'])
-def recommend():
+@app.route('/recommend-food', methods=['POST'])
+def recommend_food():
     try:
-        # Ambil data dari request JSON
         data = request.get_json()
+        
+        # Validasi input
+        required_fields = ['age_months', 'daily_budget', 'daily_needs']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({'error': f'Missing required field: {field}'}), 400
 
         age_months = data['age_months']
+        daily_budget = data['daily_budget']
         daily_needs = data['daily_needs']
-        budget = data['budget']
+        user_preferences = data.get('user_preferences', None)
 
-        # Panggil fungsi get_recommendations
-        recommendations = get_recommendations(age_months, daily_needs, budget, top_n=5)
+        # Panggil fungsi rekomendasi
+        recommendations, summary = get_food_recommendations(
+            age_months=age_months,
+            daily_needs=daily_needs,
+            daily_budget=daily_budget,
+            user_preferences=user_preferences
+        )
 
-        return jsonify(recommendations)
+        # Format response
+        if isinstance(recommendations, str):
+            return jsonify({
+                'status': 'error',
+                'message': recommendations
+            }), 400
+
+        response = {
+            'recommendations': recommendations.to_dict('records'),
+            'summary': {
+                'total_nutrients': summary['Total_Nutrients'],
+                'remaining_budget': summary['Remaining_Budget']
+            }
+        }
+
+        return jsonify(response), 200
+
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
+        return jsonify({'error': str(e)}), 500
 
 
 # @app.route("/initialize-tracking", methods=["POST"])
@@ -263,4 +287,4 @@ def recommend():
 #         }), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)

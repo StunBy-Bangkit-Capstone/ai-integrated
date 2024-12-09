@@ -93,71 +93,92 @@ response:
 
 ## recommendation food
 
-POST http://127.0.0.1:5000/recommend
+POST http://localhost:5000/recommend-food
 
 REQUEST
 
+````json
+{
+    "age_months": 3,
+    "daily_needs": {
+        "calorie": 450,
+        "protein": 9.5,
+        "carb": 31,
+        "fat": 48
+    },
+    "daily_budget": 50000,
+    "user_preferences": ["ASI"] // optional, bisa berupa kata kunci yang diinginkan
+}
 ```json
 {
-  "age_months": 12,
-  "daily_needs": {
-    "protein": 20.1,
-    "carb": 120.5,
-    "fat": 30.2,
-    "calories": 850.5
-  },
-  "budget": 50000
+    "age_months": 7,
+    "daily_needs" : {
+        "calorie": 700.5,
+        "protein": 20.1,
+        "carb": 120.5,
+        "fat": 30.2
+    },
+    "daily_budget": 30000,
+    "user_preferences": ["Susu", "Buah"] // optional, bisa berupa kata kunci yang diinginkan
 }
-```
+````
 
 RESPONSE
 
 ```json
-[
-  {
-    "Calorie(kcal)": 150.0,
-    "Carbohydrate(g)": 22.0,
-    "Fat(g)": 4.5,
-    "Food(per 100g)": "Bubur Pisang Keju",
-    "Notes": "Bubur pisang dengan tambahan keju parut. Sumber kalsium dan potasium.",
-    "Price_per_product(IDR)": 12000.0,
-    "Protein(g)": 3.5000000000000004
-  },
-  {
-    "Calorie(kcal)": 82.0,
-    "Carbohydrate(g)": 12.0,
-    "Fat(g)": 2.5,
-    "Food(per 100g)": "Sup Cream Jagung",
-    "Notes": "Jagung dan krim yang dihaluskan menjadi sup. Sumber energi dan protein.",
-    "Price_per_product(IDR)": 45000.0,
-    "Protein(g)": 2.8
-  },
-  {
-    "Calorie(kcal)": 72.0,
-    "Carbohydrate(g)": 8.0,
-    "Fat(g)": 3.8,
-    "Food(per 100g)": "Susu Formula Lanjutan 6-12 bulan",
-    "Notes": "Contoh merek: Bebelac Gold 2 SGM 2 Dancow 2. Diperkaya dengan zat besi dan vitamin esensial.",
-    "Price_per_product(IDR)": 15800.000000000002,
-    "Protein(g)": 1.8
-  },
-  {
-    "Calorie(kcal)": 107.0,
-    "Carbohydrate(g)": 17.0,
-    "Fat(g)": 2.5,
-    "Food(per 100g)": "Bubur Havermut Susu",
-    "Notes": "Havermut yang dimasak dengan susu. Sumber energi dan serat.",
-    "Price_per_product(IDR)": 35000.0,
-    "Protein(g)": 4.0
-  },
-  {
-    "Calorie(kcal)": 408.0,
-    "Carbohydrate(g)": 75.0,
-    "Fat(g)": 9.0,
-    "Food(per 100g)": "Biskuit Bayi (promina)",
-    "Notes": "Biskuit khusus bayi yang mudah larut dalam mulut. Sumber energi cepat.",
-    "Price_per_product(IDR)": 19000.0,
-    "Protein(g)": 6.3
+{
+  "recommendations": [
+    {
+      "Banyak_produk": 1.0,
+      "Berat_per_Produk(gr)": 150,
+      "Harga_per_Porsi(IDR)": 15800.000000000002,
+      "Kalori_per_Porsi(kcal)": 108.0,
+      "Karbohidrat_per_Porsi(gr)": 12.0,
+      "Lemak_per_Porsi(gr)": 5.700000000000001,
+      "Nama_Makanan": "Susu Formula Lanjutan 6-12 bulan",
+      "Notes": "Contoh merek: Bebelac Gold 2 SGM 2 Dancow 2. Diperkaya dengan zat besi dan vitamin esensial.",
+      "Protein_per_Porsi(gr)": 2.6999999999999997,
+      "Total_Harga": 15800.000000000002
+    },
+    {
+      "Banyak_produk": 2.0,
+      "Berat_per_Produk(gr)": 100,
+      "Harga_per_Porsi(IDR)": 8000.0,
+      "Kalori_per_Porsi(kcal)": 160.0,
+      "Karbohidrat_per_Porsi(gr)": 8.5,
+      "Lemak_per_Porsi(gr)": 14.699999999999996,
+      "Nama_Makanan": "Pure Alpukat",
+      "Notes": "Alpukat matang dilumatkan. Sumber lemak baik untuk perkembangan otak bayi.",
+      "Protein_per_Porsi(gr)": 2.0,
+      "Total_Harga": 16000.0
+    },
+    {
+      "Banyak_produk": 1.0,
+      "Berat_per_Produk(gr)": 500,
+      "Harga_per_Porsi(IDR)": 10000.0,
+      "Kalori_per_Porsi(kcal)": 384.99999999999994,
+      "Karbohidrat_per_Porsi(gr)": 85.0,
+      "Lemak_per_Porsi(gr)": 0.5,
+      "Nama_Makanan": "Pure Kentang",
+      "Notes": "Kentang kukus yang dihaluskan. Sumber karbohidrat yang baik.",
+      "Protein_per_Porsi(gr)": 10.0,
+      "Total_Harga": 10000.0
+    }
+  ],
+  "summary": {
+    "remaining_budget": -11800.0,
+    "total_nutrients": {
+      "Kalori": 813.0,
+      "Karbohidrat": 114.0,
+      "Lemak": 35.599999999999994,
+      "Protein": 16.7
+    }
   }
-]
+}
+```
+
+```json
+{
+  "error": "Tidak ada solusi yang ditemukan. Coba lagi dengan budget yang lebih tinggi."
+}
 ```
