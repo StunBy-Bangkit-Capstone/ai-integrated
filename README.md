@@ -97,31 +97,33 @@ POST http://localhost:5000/recommend-food
 
 REQUEST
 
-````json
-{
-    "age_months": 3,
-    "daily_needs": {
-        "calorie": 450,
-        "protein": 9.5,
-        "carb": 31,
-        "fat": 48
-    },
-    "daily_budget": 50000,
-    "user_preferences": ["ASI"] // optional, bisa berupa kata kunci yang diinginkan
-}
 ```json
 {
-    "age_months": 7,
-    "daily_needs" : {
-        "calorie": 700.5,
-        "protein": 20.1,
-        "carb": 120.5,
-        "fat": 30.2
-    },
-    "daily_budget": 30000,
-    "user_preferences": ["Susu", "Buah"] // optional, bisa berupa kata kunci yang diinginkan
+  "age_months": 3,
+  "daily_needs": {
+    "calorie": 450,
+    "protein": 9.5,
+    "carb": 31,
+    "fat": 48
+  },
+  "daily_budget": 50000,
+  "user_preferences": ["ASI"] // optional, bisa berupa kata kunci yang diinginkan
 }
-````
+```
+
+```json
+{
+  "age_months": 7,
+  "daily_needs": {
+    "calorie": 700.5,
+    "protein": 20.1,
+    "carb": 120.5,
+    "fat": 30.2
+  },
+  "daily_budget": 30000,
+  "user_preferences": ["Susu", "Buah"] // optional, bisa berupa kata kunci yang diinginkan
+}
+```
 
 RESPONSE
 
