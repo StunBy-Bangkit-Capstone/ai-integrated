@@ -1,3 +1,18 @@
+# API Machine Learning Documentation
+
+## How to Run
+
+1. Clone this repository.
+2. Go to the `bangkit_ai` directory.
+3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+4. Run the API
+```bash
+python app.py
+```
+
 ## Measure Classify
 
 POST http://127.0.0.1:5000/measure-classify
