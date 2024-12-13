@@ -199,3 +199,8 @@ RESPONSE
   "error": "Tidak ada solusi yang ditemukan. Coba lagi dengan budget yang lebih tinggi."
 }
 ```
+
+## Contributors
+- [Ridlo Abdullah Ulinnuha](https://github.com/Ridlo543)
+- [Ahmad Dzulfikar Ubaidillah](https://github.com/dzulfikarubaid)
+- [Azzahra Athifah Dzaki](https://github.com/AzzahraDzaki)
